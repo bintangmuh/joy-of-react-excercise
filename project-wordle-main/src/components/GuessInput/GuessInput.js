@@ -1,10 +1,16 @@
 import React from "react";
 
-function GuessInput() {
+function GuessInput({ submitWord }) {
   const [guess, setGuess] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    if (guess.trim.length < 5) {
+      alert("You're wrong!")
+    } else {
+      submitWord(guess)
+    }
   }
 
   return (
