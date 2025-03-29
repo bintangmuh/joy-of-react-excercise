@@ -6,11 +6,7 @@ function GuessInput({ submitWord }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (guess.trim.length < 5) {
-      alert("You're wrong!")
-    } else {
-      submitWord(guess)
-    }
+    submitWord(guess)
   }
 
   return (
@@ -20,6 +16,8 @@ function GuessInput({ submitWord }) {
         required
         minLength={5}
         maxLength={5}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
           setGuess(nextGuess);
