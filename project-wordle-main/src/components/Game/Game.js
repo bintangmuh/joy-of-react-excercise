@@ -13,12 +13,12 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
   function submitWord(word) {
-    setGuesses([...guesses, { answer: word, id: word + "-" + Math.random() }]);
+    setGuesses([...guesses, word]);
   }
   return (
     <>
+      <GuessResult guesses={guesses} answer={answer} />
       <GuessInput submitWord={submitWord} />
-      <GuessResult guesses={guesses} />
     </>
   );
 }
